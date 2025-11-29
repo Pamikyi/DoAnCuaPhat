@@ -1,0 +1,74 @@
+@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<div class="container" style="margin-top: 151px;">
+    <h2 class="text-center mb-4">Liên Hệ Với SneakerShop</h2>
+    <p class="text-center mb-5 text-muted">
+        Nếu bạn có bất kì thắc mắc nào về sản phẩm, đơn hàng hoặc hỗ trợ kỹ thuật – hãy để lại lời nhắn cho chúng tôi.
+    </p>
+
+    <div class="row">
+
+        <!-- Form liên hệ -->
+        <div class="col-md-7 mb-4">
+            <div class="card shadow-sm p-4">
+                <h4 class="mb-3">Gửi Tin Nhắn</h4>
+
+                <form method="post" action="/AnotherPage/SendContact">
+                    <div class="mb-3">
+                        <label class="form-label">Họ và tên</label>
+                        <input type="text" name="FullName" class="form-control" placeholder="Nhập họ và tên" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" name="Email" class="form-control" placeholder="Nhập email" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Nội dung</label>
+                        <textarea name="Message" class="form-control" rows="5"
+                            placeholder="Bạn muốn nhắn gì đến chúng tôi?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark flex-fill">
+                        Gửi Liên Hệ
+                    </button>
+                </form>
+
+                @if (TempData["Success"] != null)
+                {
+                    <div class="alert alert-success mt-3">@TempData["Success"]</div>
+                }
+            </div>
+        </div>
+
+        <!-- Thông tin cửa hàng -->
+        <div class="col-md-5 mb-4">
+            <div class="card shadow-sm p-4">
+                <h4 class="mb-3">Thông Tin Liên Hệ</h4>
+
+                <p><strong>Địa chỉ:</strong> 300A Nguyễn Tất Thành, Q.4, TP.HCM</p>
+                <p><strong>Email:</strong> support@sneakershop.com</p>
+                <p><strong>Hotline:</strong> 0901 234 567</p>
+
+                <hr />
+
+                <h5 class="mb-3">Giờ làm việc</h5>
+                <p>Thứ 2 – Thứ 6: 8:00 – 20:00</p>
+                <p>Thứ 7 – Chủ Nhật: 9:00 – 18:00</p>
+
+                <hr />
+
+                <h5 class="mb-3">Mạng xã hội</h5>
+                <div class="d-flex gap-3 fs-4">
+                    <a href="#" class="text-dark"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-dark"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-dark"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,50 @@
+@model List<SneakerShop.SessionModels.CartItem>
+
+<div class="container">
+    <h2>Giỏ hàng của bạn</h2>
+
+    @if (!Model.Any())
+    {
+        <p class="alert alert-warning" style="margin-top: 50px">Giỏ hàng đang trống.</p>
+        return;
+    }
+
+    <table class="table table-bordered" style="margin-top: 50px">
+        <thead>
+            <tr>
+                <th>Ảnh</th>
+                <th>Sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Tổng</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@item.Image" width="60" />
+                    </td>
+
+                    <td>@item.Name</td>
+
+                    <td>@item.UnitPrice.ToString("N0") ₫</td>
+
+                    <td>@item.Quantity</td>
+
+                    <td>@item.Total.ToString("N0") ₫</td>
+
+                    <td>
+                        <a href="/Cart/Remove/@item.ShoeId"
+                           class="btn btn-danger btn-sm">Xóa</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a href="/Cart/Clear" class="btn btn-outline-danger">Xóa toàn bộ giỏ hàng</a>
+</div>

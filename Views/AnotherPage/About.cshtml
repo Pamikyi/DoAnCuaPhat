@@ -1,0 +1,191 @@
+@{
+    ViewData["Title"] = "Giới thiệu SneakerShop";
+}
+
+<div style="padding-top:110px;"></div>
+
+<!-- HERO ABOUT -->
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center g-4">
+            <div class="col-md-7">
+                <h1 class="display-5 fw-bold mb-3">SneakerShop</h1>
+                <p class="lead mb-3">
+                    SneakerShop là cửa hàng giày thể thao trực tuyến được xây dựng với mục tiêu
+                    mang đến cho người dùng trải nghiệm mua sắm hiện đại, nhanh chóng và trực quan.
+                </p>
+                <p class="mb-4">
+                    Website được phát triển trên nền tảng <strong>ASP.NET Core MVC</strong>, kết hợp
+                    <strong>Entity Framework Core</strong> và <strong>SQL Server</strong> để quản lý dữ liệu sản phẩm
+                    một cách hiệu quả, đồng thời sử dụng <strong>Bootstrap 5</strong> và CSS thuần để tối ưu giao diện.
+                </p>
+                <a href="/Home/Index" class="btn btn-outline-light me-2">
+                    Về trang chủ
+                </a>
+                <a href="/Home/Index#products" class="btn btn-dark flex-fill">
+                    Xem sản phẩm
+                </a>
+            </div>
+
+            <div class="col-md-5 text-md-end text-center">
+                <img src="https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg"
+                    class="img-fluid rounded shadow" alt="SneakerShop Store" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION: TẦM NHÌN & SỨ MỆNH -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-md-6">
+                <h2 class="fw-bold mb-3">Tầm nhìn & Sứ mệnh</h2>
+                <p class="mb-3">
+                    SneakerShop không chỉ là một website bán giày đơn thuần, mà còn là nơi người dùng
+                    có thể khám phá các dòng giày phù hợp với phong cách và nhu cầu tập luyện của mình.
+                </p>
+                <ul class="list-unstyled">
+                    <li class="mb-2">• Cung cấp giao diện trực quan và dễ sử dụng.</li>
+                    <li class="mb-2">• Thể hiện sản phẩm rõ ràng: hình ảnh, mô tả, giá, size.</li>
+                    <li class="mb-2">• Tích hợp dữ liệu thật từ SQL Server thông qua EF Core.</li>
+                    <li class="mb-2">• Làm nền tảng để mở rộng các chức năng đặt hàng, thanh toán, quản trị.</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Danh mục đa dạng</h5>
+                                <p class="card-text small text-muted">
+                                    Chia theo các category: <strong>Running</strong>, <strong>Training</strong>,
+                                    <strong>Lifestyle</strong>
+                                    giúp người dùng tìm giày phù hợp nhanh chóng.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Dữ liệu động</h5>
+                                <p class="card-text small text-muted">
+                                    Tất cả sản phẩm, hình ảnh, size đều được lấy từ database SQL Server và hiển thị bằng
+                                    Razor View.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Công nghệ hiện đại</h5>
+                                <p class="card-text small text-muted">
+                                    ASP.NET Core MVC, Entity Framework Core, Bootstrap 5, Razor View, LINQ to
+                                    Entities...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Giao diện responsive</h5>
+                                <p class="card-text small text-muted">
+                                    Tối ưu hiển thị trên cả máy tính, tablet và điện thoại để mang lại trải nghiệm tốt
+                                    nhất cho người dùng.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION: THÔNG TIN KỸ THUẬT -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="fw-bold mb-4 text-center">Thông tin kỹ thuật của project</h2>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body">
+                        <h5 class="card-title">Backend</h5>
+                        <ul class="small mb-0">
+                            <li>ASP.NET Core MVC</li>
+                            <li>Entity Framework Core</li>
+                            <li>Mô hình ORM với DbContext</li>
+                            <li>Repository dựa trên LINQ truy vấn dữ liệu</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body">
+                        <h5 class="card-title">Frontend</h5>
+                        <ul class="small mb-0">
+                            <li>HTML5, CSS3</li>
+                            <li>Bootstrap 5 & Bootswatch theme</li>
+                            <li>Razor View (.cshtml)</li>
+                            <li>Responsive layout, card sản phẩm, nav-tabs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body">
+                        <h5 class="card-title">Database</h5>
+                        <ul class="small mb-0">
+                            <li>SQL Server</li>
+                            <li>Các bảng: Users, Categories, Shoes, ShoeImages, ShoeSizes…</li>
+                            <li>Quan hệ 1-n, n-n thông qua Order, Cart</li>
+                            <li>Dùng Migration / Script SQL để khởi tạo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION: LIÊN HỆ -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-md-7">
+                <h2 class="fw-bold mb-3">Liên hệ & Đóng góp</h2>
+                <p class="mb-3">
+                    SneakerShop hiện đang trong giai đoạn phát triển và hoàn thiện. Mọi ý kiến đóng góp
+                    về giao diện, chức năng hay dữ liệu đều là nguồn động lực để cải thiện hệ thống.
+                </p>
+                <p class="mb-1">• Sinh viên thực hiện: <strong>Huỳnh Trường Phát – 2400007879</strong></p>
+                <p class="mb-1">• Khoa Công nghệ Thông tin – Trường Đại học Nguyễn Tất Thành</p>
+                <p class="mb-3">• Môn học: Lập trình Web – Học kỳ 4, Năm học 2025–2026</p>
+
+                <a href="/Home/Index#products" class="btn btn-dark flex-fill">
+                    Xem sản phẩm
+                </a>
+            </div>
+            <div class="col-md-5">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">Thông tin liên hệ</h5>
+                        @* <p class="small mb-1">Email: <strong>...@gmail.com</strong></p>
+                        <p class="small mb-1">SĐT: <strong>0xxx xxx xxx</strong></p>
+                        <p class="small mb-0">
+                            Góp ý về đồ án / website có thể được gửi qua email hoặc trực tiếp trong buổi bảo vệ đồ án.
+                        </p> *@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

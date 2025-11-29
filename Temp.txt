@@ -1,0 +1,152 @@
+﻿@model SneakerShop.Models.HomeViewModel
+<div style="padding-top: 110px;"></div>
+<!-- HERO SECTION -->
+<section class="hero">
+    <video
+        autoplay
+        muted
+        loop
+        class="hero-video">
+        <source src="https://storage.googleapis.com/teko-gae.appspot.com/media/video/2024/1/26/cf5fedf5-fe5e-4455-afd4-581b1306fc66/Training_SS_24_Strength_global_Launch_GLP_Female_Masthead_d_9ba579436e.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-content">
+        <h1>STEP INTO PERFORMANCE</h1>
+        <p>Discover premium athletic shoes designed for every move.</p>
+        <button class="btn">SHOP NOW</button>
+    </div>
+</section>
+<!-- COLLECTION HEADER -->
+<section class="collection-header">
+    <div class="container">
+        <h6>COLLECTION</h6>
+        <h1>
+            <strong>FEATURED SHOES</strong>
+        </h1>
+    </div>
+</section>
+@model SneakerShop.Models.HomeViewModel
+
+<!-- TAB SECTION -->
+<section class="tabs-section">
+    <div class="container">
+
+        <!-- TAB BUTTONS -->
+        <div class="tabs">
+            <button class="tab active" data-tab="all">SHOW ALL</button>
+            <button class="tab" data-tab="running">RUNNING</button>
+            <button class="tab" data-tab="training">TRAINING</button>
+            <button class="tab" data-tab="lifestyle">LIFESTYLE</button>
+        </div>
+
+        <!-- ALL -->
+        <div id="all" class="tab-content active product-row">
+            @foreach (var p in Model.AllShoes)
+            {
+                var img = p.ShoeImages?.FirstOrDefault()?.ImageUrl ?? "/images/no-image.jpg";
+
+                <div class="card product-card shadow-sm">
+                    <img src="@img" class="card-img-top" alt="@p.Name" />
+
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <h5 class="card-title mb-1">@p.Name</h5>
+                            <p class="fw-bold text-danger mb-3">@p.Price.ToString("N0") ₫</p>
+                        </div>
+                        <div class="btn-row mt-auto">
+                            <a href="/Product/Detail/@p.Id" class="btn-view flex-fill">Chi tiết</a>
+                            <a href="/Cart/Add/@p.Id" class="btn-cart flex-fill">Thêm</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <!-- RUNNING -->
+        <div id="running" class="tab-content product-row">
+            @foreach (var p in Model.Running)
+            {
+                var img = p.ShoeImages?.FirstOrDefault()?.ImageUrl ?? "/images/no-image.jpg";
+
+                <div class="card product-card shadow-sm">
+                    <img src="@img" class="card-img-top" alt="@p.Name" />
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <h5 class="card-title mb-1">@p.Name</h5>
+                            <p class="fw-bold text-danger mb-3">@p.Price.ToString("N0") ₫</p>
+                        </div>
+
+                        <div class="btn-row mt-auto">
+                            <a href="/Product/Detail/@p.Id" class="btn-view flex-fill">Chi tiết</a>
+                            <a href="/Cart/Add/@p.Id" class="btn-cart flex-fill">Thêm</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <!-- TRAINING -->
+        <div id="training" class="tab-content product-row">
+            @foreach (var p in Model.Training)
+            {
+                var img = p.ShoeImages?.FirstOrDefault()?.ImageUrl ?? "/images/no-image.jpg";
+
+                <div class="card product-card shadow-sm">
+                    <img src="@img" class="card-img-top" alt="@p.Name" />
+
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <h5 class="card-title mb-1">@p.Name</h5>
+                            <p class="fw-bold text-danger mb-3">@p.Price.ToString("N0") ₫</p>
+                        </div>
+
+                        <div class="btn-row mt-auto">
+                            <a href="/Product/Detail/@p.Id" class="btn-view flex-fill">Chi tiết</a>
+                            <a href="/Cart/Add/@p.Id" class="btn-cart flex-fill">Thêm</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <!-- LIFESTYLE -->
+        <div id="lifestyle" class="tab-content product-row">
+            @foreach (var p in Model.Lifestyle)
+            {
+                var img = p.ShoeImages?.FirstOrDefault()?.ImageUrl ?? "/images/no-image.jpg";
+
+                <div class="card product-card shadow-sm">
+                    <img src="@img" class="card-img-top" alt="@p.Name" />
+
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <h5 class="card-title mb-1">@p.Name</h5>
+                            <p class="fw-bold text-danger mb-3">@p.Price.ToString("N0") ₫</p>
+                        </div>
+
+                        <div class="btn-row mt-auto">
+                            <a href="/Product/Detail/@p.Id" class="btn-view flex-fill">Chi tiết</a>
+                            <a href="/Cart/Add/@p.Id" class="btn-cart flex-fill">Thêm</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- VIDEO SECTION -->
+<section class="video-section">
+    <div class="container">
+        <iframe
+            src="https://www.youtube.com/embed/w4vr-_3n_j4?autoplay=1&mute=1"
+            allow="autoplay"
+            allowfullscreen></iframe>
+    </div>
+</section>
+<!-- BANNER SECTION -->
+<section class="banner">
+    <div class="banner-left" style="background-image: url('https://lh3.googleusercontent.com/2IPnLy0ilnM37BIE2YszPVhTUmWiT1VMFiMAQt0wXg61AZYUY9DEpWLny2AJWBHk7cGRJoEI1cxqYQrVHlJxfxM_ySmLCqvYrg');">
+        <h1>NEW ARRIVALS</h1>
+    </div>
+    <div class="banner-right"></div>
+</section>

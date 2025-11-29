@@ -1,0 +1,87 @@
+@model SneakerShop.Models.Shoe
+
+<!-- Main Content -->
+<div class="container my-5">
+    <div class="row">
+
+        <!-- Product Images -->
+        <div class="col-md-6">
+            <div class="row">
+                <!-- Ảnh chính -->
+                <div class="col-12 mb-3">
+                    <img id="mainImage" src="@Model.ShoeImages.FirstOrDefault()?.ImageUrl"
+                        class="img-fluid rounded border" style="height: 400px; object-fit: cover; transition: .3s;"
+                        alt="@Model.Name">
+                </div>
+
+                <!-- Ảnh phụ -->
+                @foreach (var img in Model.ShoeImages.Skip(1))
+                {
+                    <div class="col-6 mb-3">
+                        <img src="@img.ImageUrl" class="img-fluid rounded thumb border"
+                            style="height: 200px; object-fit: cover; cursor: pointer; transition: .2s;"
+                            onclick="changeImage('@img.ImageUrl')" alt="@Model.Name">
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- Product Details -->
+        <div class="col-md-6" style="margin-top: 105px; gap: 10px">
+            <h1 class="display-5">@Model.Name</h1>
+            <p class="lead">@Model.Description</p>
+
+            <h3 class="text-primary">
+                <p class="fw-bold text-danger">Giá: @Model.Price.ToString("N0") ₫</p>
+            </h3>
+
+            <div class="d-flex gap-2 mt-4">
+                <a href="/Cart/Add/@Model.Id" class="btn btn-success btn-lg">
+                    <i class="fas fa-shopping-cart"></i> Mua Ngay
+                </a>
+                <a href="javascript:void(0);" class="btn btn-dark flex-fill" onclick="addToCart(@Model.Id)">
+                    Thêm vào giỏ
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Related Products -->
+<div class="container my-5">
+    <h2 class="text-center mb-4">Sản Phẩm Khác</h2>
+
+    <div class="row">
+
+        @foreach (var sp in (Model.Category?.Shoes?
+                .Where(x => x.Id != Model.Id)
+                .Take(3) ?? Enumerable.Empty<Shoe>()))
+        {
+            var img = sp.ShoeImages.FirstOrDefault()?.ImageUrl ?? "/images/no-image.jpg";
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="@img" class="card-img-top" style="height: 200px; object-fit: cover;" alt="@sp.Name">
+                    <div class="card-body">
+                        <h5 class="card-title">@sp.Name</h5>
+
+                        <p class="card-text text-muted">
+                            @sp.Description
+                        </p>
+
+                        <p class="fw-bold text-danger">
+                            Giá: @sp.Price.ToString("N0") ₫
+                        </p>
+
+                        <div class="d-flex gap-2">
+                            <a href="/Product/Detail/@sp.Id" class="btn btn-outline-dark flex-fill">
+                                Xem thêm
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

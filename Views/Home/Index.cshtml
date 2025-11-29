@@ -1,0 +1,202 @@
+﻿@model SneakerShop.Models.HomeViewModel
+<div style="padding-top: 110px;"></div>
+<!-- HERO SECTION -->
+<section class="hero">
+    <video autoplay muted loop class="hero-video">
+        <source
+            src="https://storage.googleapis.com/teko-gae.appspot.com/media/video/2024/1/26/cf5fedf5-fe5e-4455-afd4-581b1306fc66/Training_SS_24_Strength_global_Launch_GLP_Female_Masthead_d_9ba579436e.mp4"
+            type="video/mp4" />
+    </video>
+    <div class="hero-content">
+        <h1>STEP INTO PERFORMANCE</h1>
+        <p>Discover premium athletic shoes designed for every move.</p>
+        <button class="btn">SHOP NOW</button>
+    </div>
+</section>
+<!-- COLLECTION HEADER -->
+<section class="collection-header">
+    <div class="container-Index">
+        <h6>COLLECTION</h6>
+        <h1>
+            <strong>FEATURED SHOES</strong>
+        </h1>
+    </div>
+</section>
+
+<!-- TAB SECTION -->
+<section class="tabs-section py-4">
+    <div class="container-Index">
+
+        <!-- TABS -->
+        <ul class="nav nav-tabs mb-4" id="shoeTabs">
+            <li class="nav-item">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#all">Tất cả</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#running">Running</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#training">Training</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#lifestyle">Lifestyle</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" style="text-align: center;">
+
+            <!-- ALL -->
+            <div class="tab-pane fade show active" id="all">
+                <div class="row g-3">
+                    @foreach (var p in Model.AllShoes)
+                    {
+                        var img = p.ShoeImages?.FirstOrDefault()?.ImageUrl ?? "/images/no-image.jpg";
+
+                        <div class="col-md-3 col-6">
+                            <div class="card product-card shadow-sm">
+                                <img src="@img" class="card-img-top" alt="@p.Name" />
+
+                                <div class="card-body d-flex flex-column justify-content-between">
+                                    <div>
+                                        <h5 class="card-title mb-1">@p.Name</h5>
+                                        <p class="fw-bold text-danger">@p.Price.ToString("N0") ₫</p>
+                                    </div>
+
+                                    <div class="d-flex gap-2 mt-auto">
+                                        <a href="/Product/Detail/@p.Id" class="btn btn-outline-dark flex-fill">Xem thêm</a>
+                                        <a href="javascript:void(0);" class="btn btn-dark flex-fill"
+                                            onclick="addToCart(@p.Id)">
+                                            Thêm vào giỏ
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- RUNNING -->
+            <div class="tab-pane fade" id="running">
+                <div class="row g-3">
+                    @foreach (var p in Model.Running)
+                    {
+                        var img = p.ShoeImages?.FirstOrDefault()?.ImageUrl ?? "/images/no-image.jpg";
+
+                        <div class="col-md-3 col-6">
+                            <div class="card product-card shadow-sm">
+                                <img src="@img" class="card-img-top" alt="@p.Name" />
+
+                                <div class="card-body d-flex flex-column justify-content-between">
+                                    <div>
+                                        <h5 class="card-title mb-1">@p.Name</h5>
+                                        <p class="fw-bold text-danger">@p.Price.ToString("N0") ₫</p>
+                                    </div>
+
+                                    <!-- BUTTON ROW -->
+                                    <div class="d-flex gap-2 mt-auto">
+                                        <a href="/Product/Detail/@p.Id" class="btn btn-outline-dark flex-fill">
+                                            Xem thêm
+                                        </a>
+
+                                        <a href="javascript:void(0);" class="btn btn-dark flex-fill"
+                                            onclick="addToCart(@p.Id)">
+                                            Thêm vào giỏ
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- TRAINING -->
+            <div class="tab-pane fade" id="training">
+                <div class="row g-3">
+                    @foreach (var p in Model.Training)
+                    {
+                        var img = p.ShoeImages?.FirstOrDefault()?.ImageUrl ?? "/images/no-image.jpg";
+
+                        <div class="col-md-3 col-6">
+                            <div class="card product-card shadow-sm">
+                                <img src="@img" class="card-img-top" alt="@p.Name" />
+
+                                <div class="card-body d-flex flex-column justify-content-between">
+                                    <div>
+                                        <h5 class="card-title mb-1">@p.Name</h5>
+                                        <p class="fw-bold text-danger">@p.Price.ToString("N0") ₫</p>
+                                    </div>
+
+                                    <!-- BUTTON ROW -->
+                                    <div class="d-flex gap-2 mt-auto">
+                                        <a href="/Product/Detail/@p.Id" class="btn btn-outline-dark flex-fill">
+                                            Xem thêm
+                                        </a>
+
+                                        <a href="javascript:void(0);" class="btn btn-dark flex-fill"
+                                            onclick="addToCart(@p.Id)">
+                                            Thêm vào giỏ
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- LIFESTYLE -->
+            <div class="tab-pane fade" id="lifestyle">
+                <div class="row g-3">
+                    @foreach (var p in Model.Lifestyle)
+                    {
+                        var img = p.ShoeImages?.FirstOrDefault()?.ImageUrl ?? "/images/no-image.jpg";
+
+                        <div class="col-md-3 col-6">
+                            <div class="card product-card shadow-sm">
+                                <img src="@img" class="card-img-top" alt="@p.Name" />
+
+                                <div class="card-body d-flex flex-column justify-content-between">
+                                    <div>
+                                        <h5 class="card-title mb-1">@p.Name</h5>
+                                        <p class="fw-bold text-danger">@p.Price.ToString("N0") ₫</p>
+                                    </div>
+
+                                    <!-- BUTTON ROW -->
+                                    <div class="d-flex gap-2 mt-auto">
+                                        <a href="/Product/Detail/@p.Id" class="btn btn-outline-dark flex-fill">
+                                            Xem thêm
+                                        </a>
+
+                                        <a href="javascript:void(0);" class="btn btn-dark flex-fill"
+                                            onclick="addToCart(@p.Id)">
+                                            Thêm vào giỏ
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- VIDEO SECTION -->
+<section class="video-section">
+    <div class="container">
+        <iframe src="https://www.youtube.com/embed/w4vr-_3n_j4?autoplay=1&mute=1" allow="autoplay"
+            allowfullscreen></iframe>
+    </div>
+</section>
+<!-- BANNER SECTION -->
+<section class="banner">
+    <div class="banner-left"
+        style="background-image: url('https://lh3.googleusercontent.com/2IPnLy0ilnM37BIE2YszPVhTUmWiT1VMFiMAQt0wXg61AZYUY9DEpWLny2AJWBHk7cGRJoEI1cxqYQrVHlJxfxM_ySmLCqvYrg');">
+        <h1>NEW ARRIVALS</h1>
+    </div>
+    <div class="banner-right"></div>
+</section>

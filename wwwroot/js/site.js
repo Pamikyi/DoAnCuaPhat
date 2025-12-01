@@ -134,3 +134,29 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+function updateQuantity(id, quantity) {
+    fetch("/Cart/UpdateQuantity", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `id=${id}&quantity=${quantity}`
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            location.reload(); // reload lại trang để cập nhật tổng tiền
+        }
+    });
+}
+function buyNow(id) {
+    fetch("/Cart/BuyNow/" + id, {
+        method: "POST"
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            window.location.href = data.redirect;
+        }
+    });
+}

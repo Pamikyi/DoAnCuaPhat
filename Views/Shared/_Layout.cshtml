@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+<!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -23,30 +24,37 @@
 </head>
 
 <body>
-    <!-- Header Section -->
-    <header class="header">
-        <div class="header-container">
-            <a href="/" class="logo">
-                <img src="~/Image/Logo-giup-khach-hang-nho-toi-shop-giay-cua-ban-lau-hon (1).jpg" alt="Logo" />
+    <!--   HEADER      -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+        <div class="container-fluid px-4">
+
+            <!-- LOGO -->
+            <a class="navbar-brand fw-bold" href="/">
+                SNEAKER SHOP
             </a>
 
-            <button class="hamburger" onclick="toggleMenu()">
-                <span></span><span></span><span></span>
+            <!-- NÚT MENU MOBILE (HAMBURGER) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="nav">
-                <ul class="d-flex align-items-center" style="gap: 10px; list-style: none; margin: 0; padding: 0;">
+            <!-- MENU -->
+            <div class="collapse navbar-collapse" id="mainNavbar">
 
-                    <li><a href="/Home/Index" class="nav-link">Home</a></li>
+                <!-- LEFT MENU -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                    <li><a href="/AnotherPage/About" class="nav-link">About Us</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Trang chủ</a>
+                    </li>
 
                     <!-- SHOP DROPDOWN -->
                     <div>
                         <li class="dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                Shop
+                                Sản phẩm
                             </a>
 
                             <ul class="dropdown-menu" aria-labelledby="shopDropdown" style="min-width: 180px;">
@@ -64,16 +72,67 @@
                             </ul>
                     </div>
                     </li>
-                    <li><a href="/AnotherPage/Contact" class="nav-link">Contact Us</a></li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/AnotherPage/Contact">Liên hệ</a>
+                    </li>
+
+                    <li><a href="/AnotherPage/About" class="nav-link">Về chúng tôi</a></li>
 
                 </ul>
-            </div>
-            <div class="cart">
-                <span id="cart-count" class="cart-count">0</span>
-                <a class="cart-icon" href="@Url.Action("Cart", "Cart")">🛒</a>
+
+                <!-- RIGHT AREA -->
+                <div class="d-flex align-items-center gap-3">
+
+                    <!-- SEARCH -->
+                    <form class="d-flex d-none d-lg-flex">
+                        <input class="form-control" type="search" placeholder="Tìm kiếm..." />
+                    </form>
+
+                    <!-- CART ICON -->
+                    <div class="cart position-relative">
+                        <span id="cart-count" class="cart-count">0</span>
+                        <a class="cart-icon fs-4 text-dark" href="/Cart/Cart">🛒</a>
+                    </div>
+
+                    <!-- USER AREA -->
+                    @{
+                        var name = Context.Session.GetString("UserName");
+                        var role = Context.Session.GetString("Role");
+                    }
+
+                    @if (name == null)
+                    {
+                        <a href="/Auth/Login" class="btn btn-outline-primary btn-sm">Đăng nhập</a>
+                        <a href="/Auth/Register" class="btn btn-primary btn-sm">Đăng ký</a>
+                    }
+                    else
+                    {
+                        <div class="dropdown">
+                            <button class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown">
+                                👤 @name
+                            </button>
+                            @if (role == "Admin") {
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="/User/Profile">Thông tin cá nhân</a></li>
+                                <li><a class="dropdown-item" href="/Admin/Index">Trang quản trị viên</a></li>
+                                <li><a class="dropdown-item" href="/Auth/Logout">Đăng xuất</a></li>
+                            </ul>
+                            }
+                            else {
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="/User/Profile">Thông tin cá nhân</a></li>
+                                <li><a class="dropdown-item" href="/Auth/Logout">Đăng xuất</a></li>
+                            </ul>
+                            }
+                        </div>
+                    }
+                </div>
+
             </div>
         </div>
-    </header>
+    </nav>
+    
 
     <div class="container mt-4">
         <main role="main" class="pb-3">

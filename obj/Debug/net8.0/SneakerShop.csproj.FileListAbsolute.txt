@@ -427,3 +427,5 @@ C:\Users\1904d\OneDrive\Máy tính\Đồ án\24DTH2B_LTW_HuynhTruongPhat[2400007
 C:\Users\1904d\OneDrive\Máy tính\Đồ án\24DTH2B_LTW_HuynhTruongPhat[2400007879]\Đồ án của Phát\obj\Debug\net8.0\SneakerShop.pdb
 C:\Users\1904d\OneDrive\Máy tính\Đồ án\24DTH2B_LTW_HuynhTruongPhat[2400007879]\Đồ án của Phát\obj\Debug\net8.0\SneakerShop.genruntimeconfig.cache
 C:\Users\1904d\OneDrive\Máy tính\Đồ án\24DTH2B_LTW_HuynhTruongPhat[2400007879]\Đồ án của Phát\obj\Debug\net8.0\ref\SneakerShop.dll
+C:\Users\1904d\OneDrive\Máy tính\Đồ án\24DTH2B_LTW_HuynhTruongPhat[2400007879]\Đồ án của Phát\obj\Debug\net8.0\SneakerShop.sourcelink.json
+C:\Users\1904d\OneDrive\Máy tính\Đồ án\24DTH2B_LTW_HuynhTruongPhat[2400007879]\Đồ án của Phát\bin\Debug\net8.0\BCrypt.Net-Next.dll

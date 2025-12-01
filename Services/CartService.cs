@@ -14,12 +14,15 @@ namespace SneakerShop.Services
         }
 
         private ISession Session => _http.HttpContext!.Session;
-
         private const string CART_KEY = "CART_SESSION";
 
+        // ============================
+        // LẤY GIỎ HÀNG
+        // ============================
         public List<CartItem> GetCart()
         {
             var data = Session.GetString(CART_KEY);
+
             return string.IsNullOrEmpty(data)
                 ? new List<CartItem>()
                 : JsonConvert.DeserializeObject<List<CartItem>>(data) ?? new List<CartItem>();
@@ -30,6 +33,9 @@ namespace SneakerShop.Services
             Session.SetString(CART_KEY, JsonConvert.SerializeObject(cart));
         }
 
+        // ============================
+        // THÊM SẢN PHẨM VÀO GIỎ
+        // ============================
         public void AddToCart(int id, string name, string image, decimal price)
         {
             var cart = GetCart();
@@ -52,6 +58,44 @@ namespace SneakerShop.Services
             }
 
             SaveCart(cart);
+        }
+
+        // ============================
+        // XÓA 1 SẢN PHẨM
+        // ============================
+        public void Remove(int id)
+        {
+            var cart = GetCart();
+
+            var item = cart.FirstOrDefault(x => x.ShoeId == id);
+            if (item != null)
+                cart.Remove(item);
+
+            SaveCart(cart);
+        }
+
+        // ============================
+        // CẬP NHẬT SỐ LƯỢNG
+        // ============================
+        public void UpdateQuantity(int id, int quantity)
+        {
+            var cart = GetCart();
+
+            var item = cart.FirstOrDefault(x => x.ShoeId == id);
+            if (item != null)
+            {
+                item.Quantity = quantity < 1 ? 1 : quantity;
+            }
+
+            SaveCart(cart);
+        }
+
+        // ============================
+        // XÓA TOÀN BỘ GIỎ
+        // ============================
+        public void ClearCart()
+        {
+            Session.Remove(CART_KEY);
         }
     }
 }

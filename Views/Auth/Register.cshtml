@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "Đăng ký";
+}
+
+<div class="container mt-5" style="max-width: 450px;">
+    <h2 class="text-center mb-4">Tạo tài khoản</h2>
+
+    @if (TempData["Error"] != null)
+    {
+        <p class="alert alert-danger">@TempData["Error"]</p>
+    }
+
+    <form method="post">
+        <div class="mb-3">
+            <label>Họ tên</label>
+            <input name="FullName" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label>Email</label>
+            <input name="Email" type="email" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label>Mật khẩu</label>
+            <input name="Password" type="password" class="form-control" required />
+        </div>
+
+        <button class="btn btn-primary w-100">Đăng ký</button>
+    </form>
+
+    <p class="text-center mt-3">
+        Đã có tài khoản? <a href="/Auth/Login">Đăng nhập</a>
+    </p>
+</div>

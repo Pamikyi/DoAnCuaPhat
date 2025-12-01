@@ -62,39 +62,9 @@ a {
     padding: 0 16px;
 }
 
-/* HEADER */
-header {
-    height: 80px;
-    background: #fff;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 25px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* LOGO */
-header img {
+nav img {
     height: 100%;
     object-fit: contain;
-}
-
-/* MENU */
-header .menu a {
-    font-size: 16px;
-    padding: 0 18px;
-    color: #222;
-    text-decoration: none;
-    line-height: 80px;
-}
-
-header .menu a:hover {
-    color: #000;
-    font-weight: bold;
 }
 
 /* CART */
@@ -124,11 +94,6 @@ header .menu a:hover {
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
-}
-
-.logo img {
-    width: 70px;
-    height: auto;
 }
 
 .hamburger {
@@ -440,12 +405,6 @@ cart-icon {
 .product-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.product-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
 }
 
 .btn-row,

@@ -9,10 +9,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<EmailService>();
 
 builder.Services.AddSession();
-
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-builder.Services.AddScoped<CartService>();   // ⬅ LÚC NÀY KHÔNG LỖI NỮA
 
+builder.Services.AddScoped<CartService>();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );

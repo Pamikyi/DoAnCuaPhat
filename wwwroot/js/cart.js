@@ -37,3 +37,12 @@ window.addToCart = async function (id) {
         console.error("Lỗi khi thêm vào giỏ:", err);
     }
 };
+function buyNow(id) {
+    fetch('/Cart/BuyNow?id=' + id, { method: 'POST' })
+        .then(r => r.json())
+        .then(data => {
+            if (data.success) {
+                window.location.href = data.redirect;   // ⚡ Quan trọng
+            }
+        });
+}

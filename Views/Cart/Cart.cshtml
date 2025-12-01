@@ -33,18 +33,24 @@
 
                     <td>@item.UnitPrice.ToString("N0") ₫</td>
 
-                    <td>@item.Quantity</td>
+                    <td>
+                        <input type="number" min="1" value="@item.Quantity"
+                            onchange="updateQuantity(@item.ShoeId, this.value)" class="form-control form-control-sm"
+                            style="width: 70px;">
+                    </td>
 
                     <td>@item.Total.ToString("N0") ₫</td>
 
                     <td>
-                        <a href="/Cart/Remove/@item.ShoeId"
-                           class="btn btn-danger btn-sm">Xóa</a>
+                        <a href="/Cart/Remove/@item.ShoeId" class="btn btn-danger btn-sm">Xóa</a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 
-    <a href="/Cart/Clear" class="btn btn-outline-danger">Xóa toàn bộ giỏ hàng</a>
+    <a href="/Home/Index" class="btn btn-outline-info ">Trở về trang chủ</a>
+    <form method="get" action="/Cart/Checkout">
+        <button class="btn btn-success btn-lg mt-3">Thanh toán tất cả</button>
+    </form>
 </div>
